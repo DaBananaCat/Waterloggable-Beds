@@ -9,7 +9,8 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/user/Sir_BananaCat",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/DaBananaCat/Waterloggable-Beds",
+		"issues": "https://github.com/DaBananaCat/Waterloggable-Beds/issues"
 	},
 	"license": "Apache 2.0",
 	"icon": "assets/waterbeds/icon.png",

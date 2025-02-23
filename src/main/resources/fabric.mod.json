@@ -2,16 +2,16 @@
 	"schemaVersion": 1,
 	"id": "waterbeds",
 	"version": "${version}",
-	"name": "waterbeds",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Waterbeds",
+	"description": "Introduces a bed that lets you sleep underwater.",
 	"authors": [
-		"Me!"
+		"Sir_BananaCat"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
+		"homepage": "https://modrinth.com/user/Sir_BananaCat",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "Apache 2.0",
 	"icon": "assets/waterbeds/icon.png",
 	"environment": "*",
 	"entrypoints": {

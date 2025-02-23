@@ -1,25 +1,31 @@
 package banana.waterbeds.Blocks;
 
 
-import com.mojang.serialization.Decoder;
+import banana.waterbeds.Waterbeds;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.commands.ExecuteCommand;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.BedBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.BlockHitResult;
+import org.apache.logging.log4j.core.jmx.Server;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,8 +35,9 @@ public class WaterbedBlock extends BedBlock implements SimpleWaterloggedBlock {
         WATERLOGGED = BlockStateProperties.WATERLOGGED;
     }
     public WaterbedBlock() {
-        super(DyeColor.WHITE, Properties.ofFullCopy(Blocks.WHITE_BED));
-        this.registerDefaultState((BlockState) this.defaultBlockState().setValue(WATERLOGGED, false));
+        super(DyeColor.RED, Properties.ofFullCopy(Blocks.RED_BED));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(PART, BedPart.FOOT).setValue(OCCUPIED, false).setValue(WATERLOGGED, false));
+
     }
 
     @Override
@@ -52,8 +59,7 @@ public class WaterbedBlock extends BedBlock implements SimpleWaterloggedBlock {
     }
 
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+    public @NotNull BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new WaterbedBlockEntity(pos, state);
     }
-
 }

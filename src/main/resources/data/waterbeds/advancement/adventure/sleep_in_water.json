@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "bozo": {
+      "conditions": {
+        "items": [
+          {
+            "items": "waterbeds:waterbed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "waterbeds:waterbed"
+    },
+    "title": {
+      "translate": "advancements.adventure.waterbed.title"
+    },
+    "description": {
+      "translate": "advancements.adventure.waterbed.description"
+    },
+    "requirements": [
+      [
+        "bozo"
+      ]
+    ],
+    "rewards": {
+      "experience": 100
+    },
+    "sends_telemetry_event": true
+  }
+}
